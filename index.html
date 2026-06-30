@@ -101,20 +101,20 @@
         <canvas id="hero-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
         
         <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="" class="absolute top-1/3 left-4 md:left-12 w-12 md:w-20 opacity-20 -rotate-12 dark:opacity-30">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="" class="absolute top-10 right-10 md:top-20 md:left-1/3 w-12 md:w-20 opacity-20 -rotate-12 dark:opacity-30">
             <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg" alt="" class="absolute top-1/4 right-4 md:right-1/3 w-16 md:w-24 opacity-20 rotate-12 dark:opacity-30">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/YouTube_Shorts_icon_%282020-2024%29.svg" alt="" class="absolute bottom-20 left-10 md:left-1/4 w-10 md:w-16 opacity-20 -rotate-6 dark:opacity-30">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/YouTube_Shorts_icon_%282020-2024%29.svg" alt="" class="absolute bottom-10 left-4 md:bottom-20 md:left-1/4 w-10 md:w-16 opacity-20 -rotate-6 dark:opacity-30">
         </div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
             <div class="w-full md:w-1/2 text-center md:text-left">
-                <p class="text-[9px] sm:text-xs md:text-sm mb-2 text-gray-600 dark:text-gray-300 font-black tracking-widest uppercase whitespace-nowrap max-w-xl mx-auto md:mx-0">
+                <p class="text-[8px] sm:text-xs md:text-sm mb-2 text-gray-600 dark:text-gray-300 font-black tracking-wider sm:tracking-widest uppercase whitespace-nowrap max-w-xl mx-auto md:mx-0">
                     Approuvé par des Leaders de la Finance Française.
                 </p>
 
                 <h1 class="text-4xl sm:text-5xl md:text-7xl font-black mb-6 leading-tight uppercase tracking-tighter">
                     <span class="text-[#FF0000] block">Youtube Short</span>
-                    <span class="text-[#202124] dark:text-white block mt-1 whitespace-nowrap">Paid Media & Creative</span>
+                    <span class="text-[#202124] dark:text-white block mt-1">Paid Media & Creative</span>
                     <span class="font-serif text-3xl sm:text-4xl md:text-6xl text-[#202124] dark:text-white normal-case tracking-normal block mt-2 md:mt-4"> Pour les Services Financiers</span>
                 </h1>
                 
@@ -478,9 +478,9 @@
         <canvas id="footer-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
         
         <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="" class="absolute top-24 left-4 md:left-24 w-12 md:w-20 opacity-20 rotate-12 dark:opacity-30">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg" alt="" class="absolute top-1/3 right-4 md:right-24 w-16 md:w-24 opacity-20 -rotate-12 dark:opacity-30">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/YouTube_Shorts_icon_%282020-2024%29.svg" alt="" class="absolute bottom-32 left-10 md:left-1/3 w-10 md:w-16 opacity-20 rotate-6 dark:opacity-30">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="" class="absolute top-12 left-4 md:left-16 w-12 md:w-20 opacity-20 -rotate-12 dark:opacity-30">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg" alt="" class="absolute bottom-24 right-4 md:right-16 w-16 md:w-24 opacity-20 rotate-12 dark:opacity-30">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/YouTube_Shorts_icon_%282020-2024%29.svg" alt="" class="absolute top-32 right-10 md:right-1/4 w-10 md:w-16 opacity-20 rotate-6 dark:opacity-30">
         </div>
 
         <div class="relative z-10 max-w-4xl mx-auto px-6">
@@ -516,6 +516,11 @@
     </footer>
 
     <script>
+        const gadsImg = new Image();
+        gadsImg.src = 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Ads_logo.svg';
+        const ytImg = new Image();
+        ytImg.src = 'https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg';
+
         class ParticleSystem {
             constructor(canvasId) {
                 this.canvas = document.getElementById(canvasId);
@@ -551,15 +556,26 @@
             }
 
             createParticle() {
-                return {
+                let p = {
                     x: Math.random() * this.canvas.parentElement.offsetWidth,
                     y: Math.random() * this.canvas.parentElement.offsetHeight,
                     vx: (Math.random() - 0.5) * 0.4,
                     vy: (Math.random() - 0.5) * 0.4,
-                    angle: Math.random() * Math.PI * 2,
-                    type: 'electron',
-                    size: Math.random() * 1.5 + 0.5
+                    angle: Math.random() * Math.PI * 2
                 };
+                
+                let rand = Math.random();
+                if (rand > 0.99) { 
+                    p.type = 'yt';
+                    p.size = Math.random() * 20 + 35; 
+                } else if (rand > 0.98) { 
+                    p.type = 'gads';
+                    p.size = Math.random() * 20 + 35;
+                } else {
+                    p.type = 'electron';
+                    p.size = Math.random() * 1.5 + 0.5;
+                }
+                return p;
             }
 
             update(p) {
@@ -581,10 +597,29 @@
             }
 
             draw(p) {
-                this.ctx.fillStyle = 'rgba(255, 0, 0, 0.4)'; 
-                this.ctx.beginPath();
-                this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                this.ctx.fill();
+                if (p.type === 'electron') {
+                    this.ctx.fillStyle = 'rgba(255, 0, 0, 0.4)'; 
+                    this.ctx.beginPath();
+                    this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    this.ctx.fill();
+                } else {
+                    let img = p.type === 'gads' ? gadsImg : ytImg;
+                    if (img.complete) {
+                        let ratio = img.width / img.height;
+                        let drawW = p.size;
+                        let drawH = p.size;
+                        
+                        if (ratio > 1) { 
+                            drawH = p.size / ratio; 
+                        } else { 
+                            drawW = p.size * ratio; 
+                        }
+
+                        this.ctx.globalAlpha = 0.5; 
+                        this.ctx.drawImage(img, p.x - drawW/2, p.y - drawH/2, drawW, drawH);
+                        this.ctx.globalAlpha = 1.0;
+                    }
+                }
             }
 
             drawLines() {
@@ -592,6 +627,7 @@
                     for (let j = i; j < this.particles.length; j++) {
                         let pi = this.particles[i];
                         let pj = this.particles[j];
+                        if (pi.type !== 'electron' || pj.type !== 'electron') continue;
                         
                         let dx = pi.x - pj.x;
                         let dy = pi.y - pj.y;
