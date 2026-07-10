@@ -155,13 +155,13 @@
                  @mouseup="dragEnd($event)"
                  @mouseleave.prevent="dragEnd($event)">
                  
-                <div class="absolute left-1/2 top-1/2 bg-gray-100 dark:bg-zinc-800 border-4 border-white dark:border-zinc-700 rounded-2xl overflow-hidden transition-all duration-1500 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-grab active:cursor-grabbing w-40 sm:w-64 h-[280px] sm:h-[450px]"
-                     :class="active === 0 ? 'z-10 -translate-x-1/2 -translate-y-1/2 rotate-3 scale-100 shadow-[0_20px_50px_rgba(0,0,0,0.1)] opacity-100' : 'z-0 translate-x-[5%] sm:translate-x-[30%] md:translate-x-[40%] -translate-y-[60%] sm:-translate-y-[55%] -rotate-6 scale-90 shadow-[0_20px_50px_rgba(0,0,0,0.15)] opacity-90'">
+                <div class="absolute left-1/2 top-1/2 bg-gray-100 dark:bg-zinc-800 border-4 border-white dark:border-zinc-700 rounded-2xl overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-grab active:cursor-grabbing w-40 sm:w-64 h-[280px] sm:h-[450px]"
+                     :class="active === 0 ? 'z-10 -translate-x-1/2 -translate-y-1/2 rotate-3 scale-100 shadow-[0_20px_50px_rgba(0,0,0,0.1)] opacity-100' : 'z-0 translate-x-[20%] sm:translate-x-[30%] md:translate-x-[40%] -translate-y-[60%] sm:-translate-y-[55%] -rotate-6 scale-90 shadow-[0_20px_50px_rgba(0,0,0,0.15)] opacity-90'">
                     <img src="TSA_herosection_thumbnail_1.png" alt="Aperçu Short 1" class="absolute inset-0 w-full h-full object-cover pointer-events-none">
                 </div>
 
-                <div class="absolute left-1/2 top-1/2 bg-gray-200 dark:bg-zinc-900 border-4 border-white dark:border-zinc-700 rounded-2xl overflow-hidden transition-all duration-1500 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-grab active:cursor-grabbing w-40 sm:w-64 h-[280px] sm:h-[450px]"
-                     :class="active === 1 ? 'z-10 -translate-x-1/2 -translate-y-1/2 rotate-3 scale-100 shadow-[0_20px_50px_rgba(0,0,0,0.1)] opacity-100' : 'z-0 translate-x-[5%] sm:translate-x-[30%] md:translate-x-[40%] -translate-y-[60%] sm:-translate-y-[55%] -rotate-6 scale-90 shadow-[0_20px_50px_rgba(0,0,0,0.15)] opacity-90'">
+                <div class="absolute left-1/2 top-1/2 bg-gray-200 dark:bg-zinc-900 border-4 border-white dark:border-zinc-700 rounded-2xl overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-grab active:cursor-grabbing w-40 sm:w-64 h-[280px] sm:h-[450px]"
+                     :class="active === 1 ? 'z-10 -translate-x-1/2 -translate-y-1/2 rotate-3 scale-100 shadow-[0_20px_50px_rgba(0,0,0,0.1)] opacity-100' : 'z-0 translate-x-[20%] sm:translate-x-[30%] md:translate-x-[40%] -translate-y-[60%] sm:-translate-y-[55%] -rotate-6 scale-90 shadow-[0_20px_50px_rgba(0,0,0,0.15)] opacity-90'">
                     <img src="TSA_herosection_thumbnail_2.png" alt="Aperçu Short 2" class="absolute inset-0 w-full h-full object-cover pointer-events-none">
                 </div>
                 
